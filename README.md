@@ -105,5 +105,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_environments"></a> [environments](#output\_environments) | A map of the created environments |
+| <a name="output_repository"></a> [repository](#output\_repository) | The target github repository informations |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
