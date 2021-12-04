@@ -16,6 +16,6 @@ module "env" {
 }
 
 output "this" {
-  value = module.env
+  value       = module.env
   description = "The env module outputs"
 }
