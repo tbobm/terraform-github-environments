@@ -14,3 +14,8 @@ module "env" {
     }
   }
 }
+
+output "this" {
+  value = module.env
+  description = "The env module outputs"
+}
