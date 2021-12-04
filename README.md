@@ -71,12 +71,14 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [github_actions_secret.example_secret](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) | resource |
 | [github_repository.repo](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/repository) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_environments"></a> [environments](#input\_environments) | A map of environment definitions | `map(any)` | n/a | yes |
 | <a name="input_repository"></a> [repository](#input\_repository) | The full name of the repository in the form org/repo | `string` | n/a | yes |
 
 ## Outputs
