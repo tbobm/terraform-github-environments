@@ -28,6 +28,11 @@ here](https://github.com/tbobm/terraform-github-environments/blob/master/.github
 
 ## Usage
 
+_Note: Github Actions Environments are available for Public Repositories and
+Github Enterprise Cloud users. ([doc][gh-env-doc])_
+
+[gh-env-doc]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
+
 ### Github Authentication
 
 You will need to authenticate against Github using an OAuth Token or Personal Access Token.
