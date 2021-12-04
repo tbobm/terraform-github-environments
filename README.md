@@ -50,6 +50,23 @@ export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 [tf-gh-auth]: https://registry.terraform.io/providers/integrations/github/latest/docs#authentication
 
+### Creating Environments
+
+You can define multiple Github Actions Environments by defining a `map`
+of environment definitions.
+
+```hcl
+module "gh-env" {
+  source = "tbobm/environments/github"
+
+  repository = "tbobm/terraform-github-secrets"
+
+  environments = {
+    "stable" = { }
+  }
+}
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -71,8 +88,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_actions_secret.example_secret](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) | resource |
-| [github_repository.repo](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/repository) | data source |
+| [github_repository_environment.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment) | resource |
+| [github_repository.this](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/repository) | data source |
 
 ## Inputs
 
