@@ -3,28 +3,7 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/terraform-github-environments)
 [![terraform-github-environments](https://github.com/tbobm/terraform-github-environments/workflows/terraform-github-environments/badge.svg)](https://github.com/tbobm/terraform-github-environments/actions?query=workflow%3Aterraform-github-environments)
 
-## Doc generation
-
-Code formatting and documentation for variables and outputs is generated using
-[pre-commit-terraform
-hooks](https://github.com/antonbabenko/pre-commit-terraform) which uses
-[terraform-docs](https://github.com/segmentio/terraform-docs).
-
-Follow [these
-instructions](https://github.com/antonbabenko/pre-commit-terraform#how-to-install)
-to install pre-commit locally.
-
-And install `terraform-docs` with `go get github.com/segmentio/terraform-docs`
-or `brew install terraform-docs`.
-
-## Contributing
-
-Report issues/questions/feature requests on in the
-[issues](https://github.com/tbobm/terraform-github-environments/issues/new)
-section.
-
-Full contributing [guidelines are covered
-here](https://github.com/tbobm/terraform-github-environments/blob/master/.github/CONTRIBUTING.md).
+Terraform module to create Github Environments for Github Actions.
 
 ## Usage
 
@@ -55,22 +34,56 @@ export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 [tf-gh-auth]: https://registry.terraform.io/providers/integrations/github/latest/docs#authentication
 
-### Creating Environments
+### Creating the Environments
 
-You can define multiple Github Actions Environments by defining a `map`
-of environment definitions.
+This module takes a `map` of objects for each Environement to configure.
 
 ```hcl
-module "gh-env" {
-  source = "tbobm/environments/github"
+module "env" {
+  source = "../"
 
   repository = "tbobm/terraform-github-secrets"
 
   environments = {
-    "stable" = { }
+    "stable" = {}
+
+    "protected" = {
+      deployment_branch_policy = {
+        protected_branches     = true
+        custom_branch_policies = false
+      }
+    }
   }
 }
 ```
+
+Here we defined two environemnts:
+- the `stable` environment
+- the `protected` environment with protected branches enabled
+
+## Doc generation
+
+Code formatting and documentation for variables and outputs is generated using
+[pre-commit-terraform
+hooks](https://github.com/antonbabenko/pre-commit-terraform) which uses
+[terraform-docs](https://github.com/segmentio/terraform-docs).
+
+Follow [these
+instructions](https://github.com/antonbabenko/pre-commit-terraform#how-to-install)
+to install pre-commit locally.
+
+And install `terraform-docs` with `go get github.com/segmentio/terraform-docs`
+or `brew install terraform-docs`.
+
+## Contributing
+
+Report issues/questions/feature requests on in the
+[issues](https://github.com/tbobm/terraform-github-environments/issues/new)
+section.
+
+Full contributing [guidelines are covered
+here](https://github.com/tbobm/terraform-github-environments/blob/master/.github/CONTRIBUTING.md).
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
