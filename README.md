@@ -90,13 +90,13 @@ here](https://github.com/tbobm/terraform-github-environments/blob/master/.github
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_github"></a> [github](#requirement\_github) | ~> 4.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | ~> 4.0 |
+| <a name="provider_github"></a> [github](#provider\_github) | >= 4.0 |
 
 ## Modules
 
